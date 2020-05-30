@@ -131,16 +131,14 @@ img {
 }
 
 .page-header > .container,
-.main-nav {
+.page-header .main-nav,
+.page-header .site-nav,
+.page-header .contacts {
   display: flex;
   align-items: center;
 }
 
 /* Site-nav */
-
-.site-nav {
-  display: flex;
-}
 
 .site-nav > .item:not(:last-child) {
   margin-right: 50px;
@@ -170,20 +168,14 @@ img {
 
 /* Contacts */
 
-.contacts {
-  display: flex;
-}
-
 .contacts > .item:not(:last-child) {
   margin-right: 30px;
 }
 
-.contacts > .item {
+.contacts .link {
   display: flex;
   align-items: center;
-}
 
-.contacts .link {
   color: var(--primery-text-color);
 
   font-weight: 500;
@@ -192,34 +184,15 @@ img {
   letter-spacing: 0.02em;
 }
 
+.icon-mail,
+.icon-tel {
+  fill: currentColor;
+  margin-right: 10px;
+}
+
 .contacts .link:hover,
 .contacts .link:focus {
   color: var(--accent-color);
-}
-
-.contacts .icon-mail {
-  display: block;
-  width: 16px;
-  height: 10.85px;
-  margin-right: 10px;
-
-  background-color: var(--primery-text-color);
-}
-
-.contacts .icon-tel {
-  display: block;
-  width: 10px;
-  height: 14.47px;
-  margin-right: 10px;
-
-  background-color: var(--primery-text-color);
-}
-
-.contacts .icon-mail:hover,
-.contacts .icon-mail:focus,
-.contacts .icon-tel:hover,
-.contacts .icon-tel:focus {
-  background-color: var(--accent-color);
 }
 
 /* Страница Студия */
@@ -228,17 +201,25 @@ img {
 
 .hero {
   text-align: center;
+  max-width: 1600px;
+  height: 600px;
+  padding-top: 200px;
+  /* padding: 200px 452px; */
+
+  background-color: var(--section-bgc);
+  background-image: linear-gradient(var(--section-bgc), var(--section-bgc)),
+    url('../images/hero.jpg');
+  background-position: center;
 }
 
 .hero-title {
   margin-top: 0;
-  margin-bottom: 46px;
-  width: 646px;
+  margin-bottom: 30px;
+  width: 696px;
 
   margin-left: auto;
   margin-right: auto;
 
-  background-color: var(--section-bgc);
   color: var(--white-color);
 
   font-weight: 900;
@@ -250,7 +231,7 @@ img {
 
 /* Кнопка */
 .button {
-  display: inline-block;
+  display: inline-flex;
   border-radius: 4px;
   min-width: 200px;
 
@@ -268,6 +249,8 @@ img {
 
 .button.subscribe-button {
   font-weight: 900;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 28px 10px 29px;
 }
 
@@ -285,16 +268,15 @@ img {
   margin-right: 30px;
 }
 
-.features .icon {
-  padding: 25px 100px;
+.features-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
   margin-bottom: 30px;
+
   border-radius: 4px;
-
   background-color: var(--secondary-bgc);
-}
-
-.features .icon:hover {
-  background-color: var(--accent-color);
 }
 
 .features .section-subtitle {
@@ -360,9 +342,10 @@ img {
 .team-card {
   /* width: 270px; */
   width: calc((100% - 90px) / 4);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
   text-align: center;
 }
 
@@ -372,8 +355,6 @@ img {
 
 .team-card-content {
   padding: 30px 31px 24px 32px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 .team-card-name {
@@ -392,18 +373,19 @@ img {
   justify-content: space-between;
 }
 
-.socials-list .icon {
-  display: block;
+.team-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
-
-  color: var(--primery-text-color);
 }
 
-.socials-list .icon:hover,
-.socials-list .icon:focus {
+.team-icon:hover,
+.team-icon:focus {
+  --color3: var(--white-color);
   background-color: var(--accent-color);
-  color: var(--white-color);
+  border-radius: 50%;
 }
 
 /* Секция Clients (Постоянные клиенты) */
@@ -412,26 +394,28 @@ img {
   display: flex;
 }
 
+.clients-list > .item {
+  width: calc((100% - 150px) / 6);
+}
+
 .clients-list > .item:not(:last-child) {
   margin-right: 30px;
 }
 
-.clients .icon {
+.clients-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 170px;
   height: 90px;
-  border-radius: 4px;
 
-  color: var(--border-clients-color);
   border: 1px solid var(--border-clients-color);
+  border-radius: 4px;
 }
 
-.clients .icon:hover,
-.clients .icon:focus {
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
+.clients-icon:hover,
+.clients-icon:focus {
+  border-color: var(--accent-color);
+  --color3: var(--accent-color);
 }
 
 /* Страница Портфолио */
@@ -468,6 +452,8 @@ img {
 .filters-button:focus {
   background-color: var(--accent-color);
   color: var(--white-color);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 /*  Examples (Примеры работ) */
@@ -519,6 +505,13 @@ img {
   color: var(--primery-text-color);
 
   line-height: 1.88;
+}
+
+.examples-card:hover,
+.examples-card:focus {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
 }
 
 /* Футер */
@@ -587,17 +580,20 @@ img {
   margin-right: 10px;
 }
 
-.footer-socials-list .icon {
-  display: block;
+.footer-socials-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
 
+  --color3: var(--white-color);
   background-color: var(--footer-icon-bgc);
-  color: var(--white-color);
+  border-radius: 50%;
 }
 
-.footer-socials-list .icon:hover,
-.footer-socials-list .icon:focus {
+.footer-socials-icon:hover,
+.footer-socials-icon:focus {
   background-color: var(--accent-color);
 }
 
